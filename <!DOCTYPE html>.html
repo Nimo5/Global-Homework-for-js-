@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<label>enter a letter </label>
+<input type="text" id="text1"><br>
+<label>enter number k :</label>
+<input type="number" id="text2"><br>
+<button onclick="letter_conter()"> start</button>
+<p id="resulta_text"></p>
+<script>
+    function letter(letter){
+        letter = letter.toUpperCase();
+        let number=letter.charCodeAt(0)-64;
+        return number;
+    }
+    function letter_conter(){
+        var input=document.getElementById("text1").value;
+        var resulta = document.getElementById("resulta_text");
+        var num=document.getElementById('text2').value;
+        var total = 0 ;
+   
+        for( let i=0 ;i<input.length;i++){
+let number =letter(input[i]);
+total += number;        } 
+            for(let i=0;i<num;i++){
+                if(total>=10){
+           total = total.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+                }
+            }
+       
+resulta.textContent=` the sum is "${total}"` ;
+
+    }
+
+
+
+</script>
+    
+</body>
+</html>
